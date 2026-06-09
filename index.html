@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holeshot BMX — From Gate to Glory</title>
+  <meta name="description" content="The ultimate BMX performance tracker. Log every race, optimise your setup, and see how you stack up on tracks worldwide. Coming soon to iOS and Android.">
+  <meta property="og:title" content="Holeshot BMX — From Gate to Glory">
+  <meta property="og:description" content="Track every lap. Every gain. Launching soon on iOS & Android.">
+  <meta property="og:image" content="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D1116;
+      --bg2:       #0a1820;
+      --orange:    #FF6A00;
+      --orange-lt: #ff8c3a;
+      --teal:      #18B2A6;
+      --deep-teal: #0E5A5B;
+      --white:     #FFFFFF;
+      --muted:     rgba(255,255,255,0.50);
+      --card-bg:   rgba(255,255,255,0.04);
+      --card-bd:   rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 20%, rgba(14,90,91,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 80%, rgba(255,106,0,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* diagonal track-line texture */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.015) 60px,
+        rgba(255,255,255,0.015) 61px
+      );
+      pointer-events: none;
+    }
+
+    .badge {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.35);
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: blink 1.6s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      width: min(280px, 65vw);
+      height: auto;
+      margin-bottom: 28px;
+      filter: drop-shadow(0 4px 40px rgba(24,178,166,0.30))
+              drop-shadow(0 0 80px rgba(24,178,166,0.12));
+    }
+
+    .hero-tagline {
+      position: relative;
+      z-index: 1;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(48px, 9vw, 80px);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      line-height: 1.0;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-tagline em {
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .email-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 16px;
+    }
+
+    .email-wrap input {
+      flex: 1;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 15px 18px;
+      color: #fff;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .email-wrap input:focus { border-color: var(--teal); background: rgba(255,255,255,0.10); }
+    .email-wrap input::placeholder { color: rgba(255,255,255,0.28); }
+
+    .btn {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 26px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(255,106,0,0.35);
+    }
+    .btn:hover { background: var(--orange-lt); transform: translateY(-2px); box-shadow: 0 6px 32px rgba(255,106,0,0.45); }
+    .btn:active { transform: translateY(0); }
+
+    .platform-note {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    .platform-note strong { color: var(--teal); font-weight: 600; }
+
+    .success-msg {
+      display: none;
+      position: relative;
+      z-index: 1;
+      background: rgba(24,178,166,0.12);
+      border: 1px solid rgba(24,178,166,0.3);
+      border-radius: 10px;
+      padding: 14px 22px;
+      color: var(--teal);
+      font-size: 15px;
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.2);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .scroll-cue svg { animation: bounceDown 1.8s ease-in-out infinite; }
+    @keyframes bounceDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    /* ─── STATS ────────────────────────────────────────── */
+    .stats-bar {
+      background: linear-gradient(135deg, var(--deep-teal) 0%, #082e2f 100%);
+      padding: 40px 24px;
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px 56px;
+    }
+    .stat { text-align: center; }
+    .stat-n {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .stat-l {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION CHROME ───────────────────────────────── */
+    .section { padding: 88px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    .eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    h2.sh {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(34px, 5.5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+    h2.sh span { color: var(--orange); }
+
+    .body-text {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    /* ─── FEATURES ─────────────────────────────────────── */
+    .features-hdr { text-align: center; margin-bottom: 56px; }
+    .features-hdr .body-text { margin: 0 auto; }
+
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .feat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-bd);
+      border-radius: 18px;
+      padding: 28px 26px 24px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .feat-card:hover {
+      border-color: rgba(24,178,166,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .feat-icon {
+      width: 50px; height: 50px;
+      background: rgba(255,106,0,0.10);
+      border: 1px solid rgba(255,106,0,0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .feat-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .feat-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ─── SCREENSHOTS ──────────────────────────────────── */
+    .shots-section {
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 40%, var(--bg2) 60%, var(--bg) 100%);
+      padding: 88px 24px 100px;
+      overflow: hidden;
+    }
+
+    .shots-hdr { margin-bottom: 56px; }
+
+    .phones {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .phone {
+      flex-shrink: 0;
+      width: 185px;
+    }
+    .phone.hero-phone {
+      width: 220px;
+      transform: translateY(-24px);
+    }
+
+    .phone-shell {
+      background: #111827;
+      border: 2px solid rgba(255,255,255,0.09);
+      border-radius: 34px;
+      padding: 10px;
+      box-shadow:
+        0 24px 64px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .notch {
+      width: 52px; height: 7px;
+      background: #0a0a0a;
+      border-radius: 4px;
+      margin: 0 auto 8px;
+    }
+    .phone-shell img {
+      width: 100%;
+      border-radius: 24px;
+      display: block;
+    }
+    .phone-lbl {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    /* ─── CTA BOTTOM ───────────────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 88px 24px;
+      background: linear-gradient(135deg, rgba(255,106,0,0.06) 0%, rgba(24,178,166,0.04) 100%);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cta-section .email-wrap { margin: 36px auto 16px; }
+
+    /* ─── FOOTER ───────────────────────────────────────── */
+    footer {
+      padding: 36px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer img {
+      height: 44px;
+      width: auto;
+      margin-bottom: 16px;
+      opacity: 0.75;
+    }
+    .footer-links {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 8px;
+    }
+    .footer-links a { color: var(--teal); text-decoration: none; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.18); }
+
+    /* ─── MOBILE ───────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .email-wrap { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
+      .phone:not(.hero-phone):nth-child(n+4) { display: none; }
+      .phone.hero-phone { transform: none; }
+      .stats-inner { gap: 16px 40px; }
+    }
+    @media (max-width: 480px) {
+      .phone:not(.hero-phone) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Coming Soon &mdash; iOS &amp; Android
+  </div>
+
+  <img src="logo.png" alt="Holeshot BMX" class="hero-logo">
+
+  <h1 class="hero-tagline">
+    From Gate<br>to <em>Glory.</em>
+  </h1>
+
+  <p class="hero-sub">
+    The ultimate BMX performance tracker. Log every race, optimise your setup,
+    and see how you stack up on tracks worldwide.
+  </p>
+
+  <div class="success-msg" id="msg1">
+    🎉 You're on the list — we'll be in touch at launch!
+  </div>
+
+  <form class="email-wrap" id="form1" onsubmit="signup(event,'msg1','form1')">
+    <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+    <button class="btn" type="submit">Notify Me</button>
+  </form>
+
+  <p class="platform-note">Launching on <strong>iOS</strong> and <strong>Android</strong> &nbsp;·&nbsp; No spam, ever.</p>
+
+  <div class="scroll-cue">
+    Scroll
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 3v10M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════ STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-n">100s</span>
+      <span class="stat-l">BMX Tracks</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">AU · NZ</span>
+      <span class="stat-l">US · UK &amp; More</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">Free</span>
+      <span class="stat-l">To Get Started</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n">0.001s</span>
+      <span class="stat-l">Precision Timing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ FEATURES -->
+<section class="section">
+  <div class="container">
+    <div class="features-hdr">
+      <p class="eyebrow">What You Get</p>
+      <h2 class="sh">Every Tool. <span>Every Edge.</span></h2>
+      <p class="body-text">Built for riders, parents, and coaches who take BMX racing seriously — from first pedal stroke to the podium.</p>
+    </div>
+
+    <div class="grid-6">
+      <div class="feat-card">
+        <div class="feat-icon">⏱</div>
+        <h3>Session Timing</h3>
+        <p>Log race and training runs with section-by-section splits — gate, first straight, corners, lap. Manual entry or built-in stopwatch.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📈</div>
+        <h3>Performance Trends</h3>
+        <p>Track your PBs and improvement over time. Compare across sessions, different bikes, and multiple tracks.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🏆</div>
+        <h3>Leaderboards</h3>
+        <p>See how you rank at any track in the world. Filter by age group, sex, and bike size to find your real competition.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📍</div>
+        <h3>Track Directory</h3>
+        <p>Hundreds of BMX tracks worldwide with GPS, surface type, gate specs, access info, events links, and social pages.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🚲</div>
+        <h3>Bike Setup Tracking</h3>
+        <p>Record full bike geometry and drivetrain specs. Version your setups so you always know what worked where.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <h3>Smart Recommendations</h3>
+        <p>Get personalised frame size, gearing range, and crank length suggestions based on your exact measurements and level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ SCREENSHOTS -->
+<section class="shots-section">
+  <div class="container">
+    <div class="shots-hdr">
+      <p class="eyebrow">App Preview</p>
+      <h2 class="sh">Built for <span>Real Racing.</span></h2>
+      <p class="body-text">Every screen designed for the track — fast, readable, and easy to use even with gloves on.</p>
+    </div>
+
+    <div class="phones">
+      <div class="phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/Screenshot 2026-06-10 002856.png" alt="Track Directory">
+        </div>
+        <p class="phone-lbl">Track Directory</p>
+      </div>
+      <div class="phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/Screenshot 2026-06-10 002543.png" alt="Session Runs">
+        </div>
+        <p class="phone-lbl">Session Runs</p>
+      </div>
+      <div class="phone hero-phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/Screenshot 2026-06-10 002632.png" alt="Performance Trends">
+        </div>
+        <p class="phone-lbl">Performance</p>
+      </div>
+      <div class="phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/Screenshot 2026-06-10 002706.png" alt="Leaderboards">
+        </div>
+        <p class="phone-lbl">Leaderboards</p>
+      </div>
+      <div class="phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/Screenshot 2026-06-10 002734.png" alt="Setup Recommendations">
+        </div>
+        <p class="phone-lbl">Setup Rec.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ CTA -->
+<section class="cta-section">
+  <div class="container">
+    <p class="eyebrow">Don't Miss Launch</p>
+    <h2 class="sh">Be First <span>Off the Gate.</span></h2>
+    <p class="body-text" style="margin:0 auto">
+      Sign up for early access — be the first to know when Holeshot BMX drops on your platform.
+    </p>
+
+    <div class="success-msg" id="msg2">
+      🎉 You're on the list — we'll be in touch at launch!
+    </div>
+
+    <form class="email-wrap" id="form2" onsubmit="signup(event,'msg2','form2')">
+      <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+      <button class="btn" type="submit">Get Early Access</button>
+    </form>
+
+    <p class="platform-note">Coming to <strong>iOS</strong> and <strong>Android</strong></p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <img src="logo.png" alt="Holeshot BMX">
+  <p class="footer-links">
+    <a href="https://holeshotbmx.com.au">holeshotbmx.com.au</a>
+    &nbsp;·&nbsp;
+    <a href="https://holeshotbmx.app">holeshotbmx.app</a>
+  </p>
+  <p class="footer-copy">© 2026 Holeshot BMX. All rights reserved.</p>
+</footer>
+
+<script>
+  function signup(e, msgId, formId) {
+    e.preventDefault();
+    // TODO: replace with your email provider (Mailchimp, ConvertKit, etc.)
+    const email = e.target.querySelector('input[type=email]').value;
+    console.log('Signup:', email);
+    document.getElementById(formId).style.display = 'none';
+    document.getElementById(msgId).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
