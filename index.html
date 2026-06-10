@@ -158,7 +158,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 80px 24px 80px;
+      padding: 24px 24px 80px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -939,13 +939,41 @@
 </footer>
 
 <script>
-  function signup(e, msgId, formId) {
+  const SUPA_URL = 'https://jnomyhzrkixfjxhfsywa.supabase.co';
+  const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impub215aHpya2l4Zmp4aGZzeXdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MzQxMDcsImV4cCI6MjA5NDIxMDEwN30.TSEogLWMkS_qpZCsdld7FBBYiYFoE-eXzmSg3A0zVyI';
+
+  async function signup(e, msgId, formId) {
     e.preventDefault();
-    // TODO: replace with your email provider (Mailchimp, ConvertKit, etc.)
-    const email = e.target.querySelector('input[type=email]').value;
-    console.log('Signup:', email);
-    document.getElementById(formId).style.display = 'none';
-    document.getElementById(msgId).style.display = 'block';
+    const form = e.target;
+    const email = form.querySelector('input[type=email]').value;
+    const btn = form.querySelector('button');
+    btn.textContent = 'Saving...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(`${SUPA_URL}/rest/v1/waitlist`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPA_KEY,
+          'Authorization': `Bearer ${SUPA_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email, source: 'landing_page' })
+      });
+
+      if (res.ok || res.status === 409) {
+        // 409 = duplicate email, still show success
+        document.getElementById(formId).style.display = 'none';
+        document.getElementById(msgId).style.display = 'block';
+      } else {
+        throw new Error(res.status);
+      }
+    } catch {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      alert('Something went wrong — please try again.');
+    }
   }
 </script>
 
