@@ -153,12 +153,11 @@
 
     /* ─── HERO ─────────────────────────────────────────── */
     .hero {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 48px 24px 80px;
+      padding: 48px 24px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -322,10 +321,7 @@
     }
 
     .scroll-cue {
-      position: absolute;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
@@ -335,6 +331,7 @@
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      margin-top: 28px;
     }
     .scroll-cue svg { animation: bounceDown 1.8s ease-in-out infinite; }
     @keyframes bounceDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
@@ -342,7 +339,7 @@
     /* ─── STATS ────────────────────────────────────────── */
     .stats-bar {
       background: linear-gradient(135deg, var(--deep-teal) 0%, #082e2f 100%);
-      padding: 40px 24px;
+      padding: 28px 24px;
     }
     .stats-inner {
       max-width: 900px;
@@ -370,7 +367,7 @@
     }
 
     /* ─── SECTION CHROME ───────────────────────────────── */
-    .section { padding: 88px 24px; }
+    .section { padding: 60px 24px; }
     .container { max-width: 1080px; margin: 0 auto; }
 
     .eyebrow {
@@ -400,7 +397,7 @@
     }
 
     /* ─── FEATURES ─────────────────────────────────────── */
-    .features-hdr { text-align: center; margin-bottom: 56px; }
+    .features-hdr { text-align: center; margin-bottom: 36px; }
     .features-hdr .body-text { margin: 0 auto; }
 
     .grid-6 {
@@ -447,11 +444,11 @@
     /* ─── SCREENSHOTS ──────────────────────────────────── */
     .shots-section {
       background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 40%, var(--bg2) 60%, var(--bg) 100%);
-      padding: 88px 24px 100px;
+      padding: 60px 24px 72px;
       overflow: hidden;
     }
 
-    .shots-hdr { margin-bottom: 56px; }
+    .shots-hdr { margin-bottom: 36px; }
 
     .phones {
       display: flex;
@@ -503,10 +500,10 @@
     /* ─── FAQ ──────────────────────────────────────────── */
     .faq-section {
       background: var(--bg);
-      padding: 88px 24px;
+      padding: 60px 24px;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
-    .faq-hdr { margin-bottom: 48px; }
+    .faq-hdr { margin-bottom: 32px; }
 
     .faq-grid {
       display: grid;
@@ -558,7 +555,7 @@
     /* ─── REGIONS ──────────────────────────────────────── */
     .regions-section {
       background: linear-gradient(135deg, rgba(14,90,91,0.15) 0%, transparent 60%);
-      padding: 56px 24px;
+      padding: 36px 24px;
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
@@ -588,7 +585,7 @@
     /* ─── CTA BOTTOM ───────────────────────────────────── */
     .cta-section {
       text-align: center;
-      padding: 88px 24px;
+      padding: 60px 24px;
       background: linear-gradient(135deg, rgba(255,106,0,0.06) 0%, rgba(24,178,166,0.04) 100%);
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
