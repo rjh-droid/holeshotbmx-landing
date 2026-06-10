@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holeshot BMX — BMX Performance Tracking App | Race Times, Leaderboards & Track Directory</title>
-  <meta name="description" content="Holeshot BMX is the ultimate BMX racing performance app. Track lap times, manage bike setups, browse 100s of tracks worldwide, and compete on leaderboards. Coming soon to iOS and Android.">
-  <meta name="keywords" content="BMX app, BMX performance tracker, BMX race times, BMX lap timer, BMX track directory, BMX leaderboard, BMX bike setup, BMX training app, BMX racing Australia">
+  <title>Holeshot BMX — BMX Race Tracking App | iOS & Android</title>
+  <meta name="description" content="Track BMX race times, gate starts, and lap times. Find BMX tracks across Australia, NZ, US and UK. Manage bike setups and compete on leaderboards. Free to download on iOS and Android.">
+  <meta name="keywords" content="BMX app, BMX racing app, BMX race tracker, BMX lap timer, BMX gate time tracker, BMX track directory, BMX leaderboard, BMX bike setup, BMX training app, BMX racing Australia, BMX tracks Queensland, BMX tracks NSW, BMX tracks Victoria, BMX performance tracker, Sqorz BMX, BMX rollout calculator, BMX frame size, BMX gear ratio">
   <meta name="author" content="Holeshot BMX">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://holeshotbmx.com.au/">
@@ -13,8 +13,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://holeshotbmx.com.au/">
-  <meta property="og:title" content="Holeshot BMX — BMX Performance Tracking App">
-  <meta property="og:description" content="Track lap times, manage bike setups, browse 100s of tracks worldwide, and compete on leaderboards. Coming soon to iOS and Android.">
+  <meta property="og:title" content="Holeshot BMX — BMX Race Tracking App">
+  <meta property="og:description" content="Track BMX gate times and lap times, find BMX tracks near you, manage bike setups, and compete on leaderboards. Coming soon to iOS and Android.">
   <meta property="og:image" content="https://holeshotbmx.com.au/logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,17 +23,17 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Holeshot BMX — BMX Performance Tracking App">
-  <meta name="twitter:description" content="Track lap times, manage bike setups, browse 100s of tracks worldwide, and compete on leaderboards. Coming soon to iOS and Android.">
+  <meta name="twitter:title" content="Holeshot BMX — BMX Race Tracking App">
+  <meta name="twitter:description" content="Track BMX gate times and lap times, find BMX tracks near you, and compete on leaderboards. Coming soon to iOS and Android.">
   <meta name="twitter:image" content="https://holeshotbmx.com.au/logo.png">
 
-  <!-- Structured Data -->
+  <!-- Structured Data: App -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     "name": "Holeshot BMX",
-    "description": "The ultimate BMX racing performance tracker. Log race and training times, manage bike setups, browse hundreds of BMX tracks worldwide, and compete on leaderboards.",
+    "description": "The ultimate BMX racing performance tracker. Log gate times and lap times, manage bike setups, browse hundreds of BMX tracks across Australia, NZ, US and UK, and compete on leaderboards by age group and bike size.",
     "url": "https://holeshotbmx.com.au",
     "applicationCategory": "SportsApplication",
     "operatingSystem": "iOS, Android",
@@ -42,16 +42,77 @@
       "price": "0",
       "priceCurrency": "AUD"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "ratingCount": "1"
-    },
     "publisher": {
       "@type": "Organization",
       "name": "Holeshot BMX",
       "url": "https://holeshotbmx.com.au"
     }
+  }
+  </script>
+
+  <!-- Structured Data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Holeshot BMX?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Holeshot BMX is a free BMX racing performance tracking app for iOS and Android. It lets riders, parents, and coaches log race and training times, track improvement, manage bike setups, browse hundreds of BMX tracks worldwide, and compete on leaderboards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I track my BMX race times?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Holeshot BMX lets you log section-by-section times for each run — including gate start, first straight, corners, and full lap time. You can enter times manually or use the built-in stopwatch timer. All times are stored against the specific track and bike setup used."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I find BMX tracks near me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Holeshot BMX includes a directory of hundreds of BMX tracks across Australia, New Zealand, the United States, the United Kingdom, and more. Each track listing includes GPS location, surface type, gate height, timing system details, access information, and social media links."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What BMX gear ratio should I use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Holeshot BMX includes a smart recommendations engine that suggests ideal gear ranges and rollout based on your rider's height, age, wheel size, and experience level. It also includes a rollout calculator for precise gearing math."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Holeshot BMX work with Sqorz timing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Holeshot BMX can import your race results directly from Sqorz using your transponder code, automatically matching sessions to tracks in the app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Holeshot BMX free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Holeshot BMX is free to download and use on iOS and Android. Sign up to be notified when the app launches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What BMX frame size do I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Holeshot BMX provides personalised frame size recommendations based on your rider's height, inseam, arm length, and age. It covers all wheel sizes from 16\" micro mini through to 24\" cruiser bikes."
+        }
+      }
+    ]
   }
   </script>
 
@@ -82,6 +143,12 @@
       overflow-x: hidden;
     }
 
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
     /* ─── HERO ─────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
@@ -105,7 +172,6 @@
       pointer-events: none;
     }
 
-    /* diagonal track-line texture */
     .hero::after {
       content: '';
       position: absolute;
@@ -180,7 +246,7 @@
       z-index: 1;
       font-size: clamp(15px, 2vw, 17px);
       color: var(--muted);
-      max-width: 460px;
+      max-width: 500px;
       line-height: 1.65;
       margin-bottom: 40px;
     }
@@ -327,7 +393,7 @@
     .body-text {
       font-size: 16px;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 560px;
       line-height: 1.65;
     }
 
@@ -432,6 +498,91 @@
       font-weight: 600;
     }
 
+    /* ─── FAQ ──────────────────────────────────────────── */
+    .faq-section {
+      background: var(--bg);
+      padding: 88px 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .faq-hdr { margin-bottom: 48px; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-bd);
+      border-radius: 14px;
+      padding: 24px 26px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: rgba(255,106,0,0.3); }
+    .faq-item[open] { border-color: rgba(255,106,0,0.4); }
+
+    .faq-item summary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      color: var(--orange);
+      transition: transform 0.2s;
+    }
+    .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+
+    .faq-item p {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── REGIONS ──────────────────────────────────────── */
+    .regions-section {
+      background: linear-gradient(135deg, rgba(14,90,91,0.15) 0%, transparent 60%);
+      padding: 56px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .regions-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 18px;
+    }
+    .regions-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .region-tag {
+      background: rgba(24,178,166,0.08);
+      border: 1px solid rgba(24,178,166,0.2);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+
     /* ─── CTA BOTTOM ───────────────────────────────────── */
     .cta-section {
       text-align: center;
@@ -470,6 +621,7 @@
       .phone:not(.hero-phone):nth-child(n+4) { display: none; }
       .phone.hero-phone { transform: none; }
       .stats-inner { gap: 16px 40px; }
+      .faq-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .phone:not(.hero-phone) { display: none; }
@@ -486,15 +638,17 @@
     Coming Soon &mdash; iOS &amp; Android
   </div>
 
-  <img src="logo.png" alt="Holeshot BMX" class="hero-logo">
+  <img src="logo.png"
+       alt="Holeshot BMX — BMX Performance Tracking App logo"
+       class="hero-logo">
 
   <h1 class="hero-tagline">
     From Gate<br>to <em>Glory.</em>
   </h1>
 
   <p class="hero-sub">
-    The ultimate BMX performance tracker. Log every race, optimise your setup,
-    and see how you stack up on tracks worldwide.
+    The ultimate BMX racing performance tracker for riders, parents, and coaches.
+    Log gate times and lap times, find BMX tracks near you, and see exactly where you rank.
   </p>
 
   <div class="success-msg" id="msg1">
@@ -502,7 +656,7 @@
   </div>
 
   <form class="email-wrap" id="form1" onsubmit="signup(event,'msg1','form1')">
-    <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+    <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address for launch notification">
     <button class="btn" type="submit">Notify Me</button>
   </form>
 
@@ -522,7 +676,7 @@
   <div class="stats-inner">
     <div class="stat">
       <span class="stat-n">100s</span>
-      <span class="stat-l">BMX Tracks</span>
+      <span class="stat-l">BMX Tracks Worldwide</span>
     </div>
     <div class="stat">
       <span class="stat-n">AU · NZ</span>
@@ -540,94 +694,211 @@
 </div>
 
 <!-- ══════════════════════════════════════════════════════ FEATURES -->
-<section class="section">
+<section class="section" aria-label="App Features">
   <div class="container">
     <div class="features-hdr">
       <p class="eyebrow">What You Get</p>
       <h2 class="sh">Every Tool. <span>Every Edge.</span></h2>
-      <p class="body-text">Built for riders, parents, and coaches who take BMX racing seriously — from first pedal stroke to the podium.</p>
+      <p class="body-text">A complete BMX racing toolkit — built for riders of all ages, parents tracking their kids, and coaches managing a full squad.</p>
     </div>
 
     <div class="grid-6">
       <div class="feat-card">
         <div class="feat-icon">⏱</div>
-        <h3>Session Timing</h3>
-        <p>Log race and training runs with section-by-section splits — gate, first straight, corners, lap. Manual entry or built-in stopwatch.</p>
+        <h3>BMX Lap Timer & Session Log</h3>
+        <p>Record gate start times, section splits, and full lap times for every run. Use the built-in stopwatch or enter times manually after the race. All runs stored against the track and bike used.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📈</div>
-        <h3>Performance Trends</h3>
-        <p>Track your PBs and improvement over time. Compare across sessions, different bikes, and multiple tracks.</p>
+        <h3>Performance Trends & PBs</h3>
+        <p>See your personal best gate and lap times at a glance. Track improvement across training sessions and race days — compare across different bikes, setups, and tracks over time.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🏆</div>
-        <h3>Leaderboards</h3>
-        <p>See how you rank at any track in the world. Filter by age group, sex, and bike size to find your real competition.</p>
+        <h3>BMX Leaderboards</h3>
+        <p>Compete on real track leaderboards filtered by age group, sex, and wheel size. See how you stack up against other BMX riders at your local track and across Australia.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📍</div>
-        <h3>Track Directory</h3>
-        <p>Hundreds of BMX tracks worldwide with GPS, surface type, gate specs, access info, events links, and social pages.</p>
+        <h3>BMX Track Finder</h3>
+        <p>Browse hundreds of BMX tracks across Australia, New Zealand, the US, the UK, and beyond. Each listing includes GPS, surface type, gate height, UCI certification, floodlighting, access info, and social links.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🚲</div>
-        <h3>Bike Setup Tracking</h3>
-        <p>Record full bike geometry and drivetrain specs. Version your setups so you always know what worked where.</p>
+        <h3>Bike Setup & Rollout Tracker</h3>
+        <p>Record full bike geometry and drivetrain specs including chainring, sprocket, and tyre rollout. Version your setups automatically — always know which setup produced your best lap times.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🎯</div>
-        <h3>Smart Recommendations</h3>
-        <p>Get personalised frame size, gearing range, and crank length suggestions based on your exact measurements and level.</p>
+        <h3>Setup Recommendations</h3>
+        <p>Get personalised BMX frame size, ideal gear range, and crank length recommendations based on your rider's height, inseam, age, and experience level — from micro mini 16" through to 24" cruiser.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════ SCREENSHOTS -->
-<section class="shots-section">
+<section class="shots-section" aria-label="App Screenshots">
   <div class="container">
     <div class="shots-hdr">
       <p class="eyebrow">App Preview</p>
-      <h2 class="sh">Built for <span>Real Racing.</span></h2>
-      <p class="body-text">Every screen designed for the track — fast, readable, and easy to use even with gloves on.</p>
+      <h2 class="sh">Designed for <span>BMX Racing.</span></h2>
+      <p class="body-text">Every screen built for track conditions — fast to use, easy to read in sunlight, and works with or without mobile data.</p>
     </div>
 
     <div class="phones">
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002856.png" alt="Track Directory">
+          <img src="screenshots/Screenshot 2026-06-10 002856.png"
+               alt="Holeshot BMX track directory showing nearby BMX tracks in Queensland Australia with gate times and lap times">
         </div>
-        <p class="phone-lbl">Track Directory</p>
+        <p class="phone-lbl">Track Finder</p>
       </div>
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002543.png" alt="Session Runs">
+          <img src="screenshots/Screenshot 2026-06-10 002543.png"
+               alt="Holeshot BMX session detail showing race runs with gate start times, section splits, and lap times">
         </div>
-        <p class="phone-lbl">Session Runs</p>
+        <p class="phone-lbl">Race Sessions</p>
       </div>
       <div class="phone hero-phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002632.png" alt="Performance Trends">
+          <img src="screenshots/Screenshot 2026-06-10 002632.png"
+               alt="Holeshot BMX performance trends chart showing gate time improvement across multiple training sessions at different BMX tracks">
         </div>
         <p class="phone-lbl">Performance</p>
       </div>
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002706.png" alt="Leaderboards">
+          <img src="screenshots/Screenshot 2026-06-10 002706.png"
+               alt="Holeshot BMX leaderboard showing top riders at Pine Rivers BMX Club filtered by age group and bike wheel size">
         </div>
         <p class="phone-lbl">Leaderboards</p>
       </div>
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002734.png" alt="Setup Recommendations">
+          <img src="screenshots/Screenshot 2026-06-10 002734.png"
+               alt="Holeshot BMX setup recommendations showing ideal frame size, gear range in gear inches, and crank length for a BMX rider">
         </div>
         <p class="phone-lbl">Setup Rec.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ REGIONS -->
+<div class="regions-section">
+  <p class="regions-label">BMX Tracks Available In</p>
+  <div class="regions-list">
+    <span class="region-tag">Queensland</span>
+    <span class="region-tag">New South Wales</span>
+    <span class="region-tag">Victoria</span>
+    <span class="region-tag">Western Australia</span>
+    <span class="region-tag">South Australia</span>
+    <span class="region-tag">ACT</span>
+    <span class="region-tag">Tasmania</span>
+    <span class="region-tag">New Zealand</span>
+    <span class="region-tag">United States</span>
+    <span class="region-tag">United Kingdom</span>
+    <span class="region-tag">+ More</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ FAQ -->
+<section class="faq-section" aria-label="Frequently Asked Questions">
+  <div class="container">
+    <div class="faq-hdr">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="sh">Common <span>Questions.</span></h2>
+    </div>
+
+    <div class="faq-grid">
+
+      <details class="faq-item">
+        <summary>
+          What is Holeshot BMX?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Holeshot BMX is a free BMX racing performance app for iOS and Android. It lets riders, parents, and coaches log race and training times, track improvement over time, manage bike setups, find BMX tracks near them, and compete on leaderboards.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          How do I track my BMX race times?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Log section-by-section times for each run — gate start, first straight, corners, and full lap time. Use the built-in stopwatch at the track or enter times manually afterwards. Every run is stored against the track, date, and bike setup used.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Can I find BMX tracks near me?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Yes. Holeshot BMX includes a directory of hundreds of BMX tracks across Australia (QLD, NSW, VIC, WA, SA and more), New Zealand, the United States, and the United Kingdom — with GPS, surface type, gate height, timing system info, and social links for each.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What BMX gear ratio should I use?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>The app's recommendation engine suggests ideal gear ranges and rollout based on your rider's height, age, wheel size, and experience level. It also includes a rollout calculator for precise chainring and sprocket gearing maths.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Does it work with Sqorz timing?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Yes. Holeshot BMX imports your race results directly from Sqorz using your transponder code — automatically matching sessions to the correct track in the app. No manual re-entry needed after a race day.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is Holeshot BMX free?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Yes, Holeshot BMX is free to download and use on iOS and Android. Sign up above to be notified the moment it launches on your platform.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What BMX frame size do I need?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Holeshot BMX recommends the correct frame class and top tube range based on your rider's height, inseam length, and age. Covers all wheel sizes — 16" micro mini, 18", 20" racing, and 24" cruiser bikes.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Can I manage multiple riders?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Yes. One account supports multiple rider profiles — ideal for parents with more than one child racing, or coaches managing a squad. Each rider has their own sessions, bikes, and performance history.</p>
+      </details>
+
     </div>
   </div>
 </section>
@@ -646,7 +917,7 @@
     </div>
 
     <form class="email-wrap" id="form2" onsubmit="signup(event,'msg2','form2')">
-      <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+      <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address for early access">
       <button class="btn" type="submit">Get Early Access</button>
     </form>
 
@@ -656,7 +927,7 @@
 
 <!-- ══════════════════════════════════════════════════════ FOOTER -->
 <footer>
-  <img src="logo.png" alt="Holeshot BMX">
+  <img src="logo.png" alt="Holeshot BMX app logo">
   <p class="footer-links">
     <a href="https://holeshotbmx.com.au">holeshotbmx.com.au</a>
     &nbsp;·&nbsp;
