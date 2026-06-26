@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Holeshot BMX</title>
+  <meta name="description" content="Help and support for the Holeshot BMX app — data deletion, account removal, and contact information.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://holeshotbmx.com.au/support/">
+  <link rel="icon" type="image/png" href="../newIcon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D1116;
+      --orange:    #FF6A00;
+      --teal:      #18B2A6;
+      --deep-teal: #0E5A5B;
+      --white:     #FFFFFF;
+      --muted:     rgba(255,255,255,0.55);
+      --border:    rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ─── HEADER ── */
+    .site-header {
+      background: rgba(13,17,22,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-logo { height: 36px; width: auto; }
+
+    .back-link {
+      font-size: 13px;
+      color: var(--teal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--orange); }
+
+    /* ─── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ─── PAGE TITLE ── */
+    .page-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.0;
+      margin-bottom: 8px;
+    }
+    .page-subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 48px;
+    }
+
+    /* ─── SECTION ── */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--orange);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── STEP LIST ── */
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .steps li span {
+      color: rgba(255,255,255,0.78);
+      padding-top: 2px;
+    }
+
+    .steps li strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ─── INFO BOX ── */
+    .info-box {
+      border-left: 3px solid var(--teal);
+      padding: 14px 18px;
+      background: rgba(24,178,166,0.06);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .info-box strong { color: var(--white); }
+
+    .warn-box {
+      border-left: 3px solid var(--orange);
+      padding: 14px 18px;
+      background: rgba(255,106,0,0.06);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .warn-box strong { color: var(--white); }
+
+    /* ─── DATA TABLE ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .data-table th {
+      background: rgba(255,106,0,0.10);
+      color: var(--white);
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: rgba(255,255,255,0.7);
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* ─── CONTACT CARD ── */
+    .contact-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .contact-card .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .contact-card a {
+      color: var(--teal);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .contact-card a:hover { color: var(--orange); }
+    .contact-card .note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 16px;
+    }
+
+    /* ─── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-inner a { color: var(--teal); text-decoration: none; }
+    .footer-inner a:hover { color: var(--orange); }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/">
+      <img src="../logo.png" alt="Holeshot BMX" class="header-logo">
+    </a>
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to home
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <h1 class="page-title">Support</h1>
+  <p class="page-subtitle">Help, data management, and account deletion for the Holeshot BMX app.</p>
+
+  <!-- ── DELETE DATA ─────────────────────────────── -->
+  <div class="section">
+    <h2 class="section-title">Delete your data</h2>
+
+    <p>You can delete individual records directly within the app at any time. All data belongs to you and can be removed without contacting support.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data type</th>
+          <th>How to delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Timing sessions &amp; runs</strong></td>
+          <td>Open the session → tap the menu (⋯) → <strong>Delete Session</strong>. This removes all run times within it.</td>
+        </tr>
+        <tr>
+          <td><strong>Individual run times</strong></td>
+          <td>Inside a session, swipe left on a run → tap <strong>Delete</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Rider profiles</strong></td>
+          <td>Settings → Riders → tap the rider → <strong>Delete Rider</strong>. This also removes all sessions and runs for that rider.</td>
+        </tr>
+        <tr>
+          <td><strong>Bike setups</strong></td>
+          <td>Settings → Bike Setups → swipe left on a setup → tap <strong>Delete</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Track photos you uploaded</strong></td>
+          <td>Open the track → Photos tab → tap and hold your photo → <strong>Remove Photo</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <strong>Deleting a rider is permanent</strong> — all sessions, run times, and bike setups linked to that rider are also deleted and cannot be recovered.
+    </div>
+  </div>
+
+  <!-- ── DELETE ACCOUNT ──────────────────────────── -->
+  <div class="section">
+    <h2 class="section-title">Delete your account</h2>
+
+    <p>Deleting your account permanently removes your profile, all riders, sessions, run times, and any other data associated with your account from our servers.</p>
+
+    <ul class="steps">
+      <li><span>Open the <strong>Holeshot BMX</strong> app and sign in.</span></li>
+      <li><span>Tap <strong>Settings</strong> (bottom-right of the screen).</span></li>
+      <li><span>Scroll to the bottom and tap <strong>Delete Account</strong>.</span></li>
+      <li><span>Confirm the deletion when prompted. Your account and all data will be permanently removed.</span></li>
+    </ul>
+
+    <div class="warn-box">
+      <strong>This action is irreversible.</strong> Once your account is deleted, your data cannot be restored. If you only want to take a break, you can simply log out instead.
+    </div>
+
+    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;color:var(--teal);margin:28px 0 12px;">Can't access the app?</h3>
+    <p>If you are unable to sign in or access the app, email us directly and we will delete your account and all associated data within 30 days.</p>
+
+    <div class="contact-card">
+      <span class="label">Data deletion requests</span>
+      <a href="mailto:admin@holeshotbmx.com.au">admin@holeshotbmx.com.au</a>
+      <span class="note">Include the email address associated with your account. We respond within 5 business days.</span>
+    </div>
+  </div>
+
+  <!-- ── WHAT WE STORE ───────────────────────────── -->
+  <div class="section">
+    <h2 class="section-title">What data we store</h2>
+
+    <p>The following is a summary of data stored when you use the app. See our <a href="/privacy/" style="color:var(--teal)">Privacy Policy</a> for the full details.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>What's stored</th>
+          <th>Deleted with account?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Account</strong></td>
+          <td>Email address, sign-in provider</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Rider profiles</strong></td>
+          <td>Name, age class, race number</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Performance data</strong></td>
+          <td>Session records, run times, gate reactions, split times</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Bike setups</strong></td>
+          <td>Frame, wheel, tyre, and component details you enter</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Track photos</strong></td>
+          <td>Photos you upload to track listings</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td><strong>App feedback</strong></td>
+          <td>Any in-app feedback messages you submit</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── CONTACT ─────────────────────────────────── -->
+  <div class="section">
+    <h2 class="section-title">General support</h2>
+
+    <p>For any other questions, bug reports, or feature requests, reach out via email.</p>
+
+    <div class="contact-card">
+      <span class="label">Support email</span>
+      <a href="mailto:admin@holeshotbmx.com.au">admin@holeshotbmx.com.au</a>
+      <span class="note">We aim to respond within 2 business days (AEST).</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Holeshot BMX</span>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
+    <a href="/support/">Support</a>
+    <a href="/">holeshotbmx.com.au</a>
+  </div>
+</footer>
+
+</body>
+</html>
