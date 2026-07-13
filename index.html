@@ -304,6 +304,36 @@
     }
     .platform-note strong { color: var(--teal); font-weight: 600; }
 
+    .platform-select {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 14px;
+    }
+    .platform-pill {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.55);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .platform-pill:hover { border-color: rgba(24,178,166,0.4); color: #fff; }
+    .platform-pill.active {
+      background: rgba(24,178,166,0.14);
+      border-color: var(--teal);
+      color: var(--teal);
+      font-weight: 600;
+    }
+
     .success-msg {
       display: none;
       position: relative;
@@ -656,8 +686,15 @@
 
   <form class="email-wrap" id="form1" onsubmit="signup(event,'msg1','form1')">
     <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address for launch notification">
+    <input type="hidden" name="platform" value="both">
     <button class="btn" type="submit">Notify Me</button>
   </form>
+
+  <div class="platform-select" role="group" aria-label="Which platform are you on?">
+    <button type="button" class="platform-pill active" data-platform="both" aria-pressed="true">Both</button>
+    <button type="button" class="platform-pill" data-platform="ios" aria-pressed="false">iOS</button>
+    <button type="button" class="platform-pill" data-platform="android" aria-pressed="false">Android</button>
+  </div>
 
   <p class="platform-note">Launching on <strong>iOS</strong> and <strong>Android</strong> &nbsp;·&nbsp; No spam, ever.</p>
 
@@ -927,8 +964,15 @@
 
     <form class="email-wrap" id="form2" onsubmit="signup(event,'msg2','form2')">
       <input type="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address for early access">
+      <input type="hidden" name="platform" value="both">
       <button class="btn" type="submit">Get Early Access</button>
     </form>
+
+    <div class="platform-select" style="margin:0 auto 14px" role="group" aria-label="Which platform are you on?">
+      <button type="button" class="platform-pill active" data-platform="both" aria-pressed="true">Both</button>
+      <button type="button" class="platform-pill" data-platform="ios" aria-pressed="false">iOS</button>
+      <button type="button" class="platform-pill" data-platform="android" aria-pressed="false">Android</button>
+    </div>
 
     <p class="platform-note">Coming to <strong>iOS</strong> and <strong>Android</strong></p>
   </div>
@@ -953,13 +997,28 @@
 
 <script>
   const SUPA_URL = 'https://jnomyhzrkixfjxhfsywa.supabase.co';
-  const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impub215aHpya2l4Zmp4aGZzeXdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MzQxMDcsImV4cCI6MjA5NDIxMDEwN30.TSEogLWMkS_qpZCsdld7FBBYiYFoE-eXzmSg3A0zVyI';
+  const SUPA_KEY = 'sb_publishable_KTevqp8MbLW619iW-0aUWQ_IgQLfRji';
+
+  document.querySelectorAll('.platform-select').forEach(function (group) {
+    group.addEventListener('click', function (e) {
+      const btn = e.target.closest('.platform-pill');
+      if (!btn) return;
+      group.querySelectorAll('.platform-pill').forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      group.closest('form').querySelector('input[name=platform]').value = btn.dataset.platform;
+    });
+  });
 
   async function signup(e, msgId, formId) {
     e.preventDefault();
     const form = e.target;
     const email = form.querySelector('input[type=email]').value;
-    const btn = form.querySelector('button');
+    const platform = form.querySelector('input[name=platform]').value;
+    const btn = form.querySelector('button[type=submit]');
     btn.textContent = 'Saving...';
     btn.disabled = true;
 
@@ -972,7 +1031,7 @@
           'Content-Type': 'application/json',
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ email, source: 'landing_page' })
+        body: JSON.stringify({ email, source: 'landing_page', platform })
       });
 
       if (res.ok || res.status === 409) {
