@@ -16,3 +16,8 @@ Ryan runs multiple chats and Claude Code sessions across his projects (this site
 
 - `index.html`, `privacy/index.html`, `terms/index.html` fetch legal content from Supabase using the **publishable key** (`sb_publishable_...`) — see the main app's `CLAUDE.md` for the 2026-06-28 key rotation this depends on. If a page shows "Unable to load," check this key hasn't gone stale.
 - Footer links (Privacy, Terms, Support, Instagram, YouTube) live in each page's own `<footer>` — there's no shared partial/include, so a new footer link needs adding to every page individually.
+- **App Links / Universal Links (`https://holeshotbmx.com.au/app/*` opens the app):**
+  - `.well-known/apple-app-site-association` (iOS) and `.well-known/assetlinks.json` (Android) prove the site trusts `com.holeshotbmx.app`. Don't rename or redirect them. Apple's file has no extension; GitHub Pages serves it as `application/octet-stream`. Apple's CDN accepts that, and Pages can't set headers anyway.
+  - `.nojekyll` must stay. Without it, Jekyll skips dot-folders and `.well-known/` is never published.
+  - `app/index.html`, `app/setup/index.html` and `404.html` are the **same page** (Pages has no rewrites; `404.html` catches any other `/app/...` path and shows "not found" for everything else). Edit all three together. The script reads the screen from the URL (`/app/setup` → `bmxapp://onboarding`), so the copies need no per-page edits.
+  - These files change only if the Apple Team ID or the Android signing keys change.

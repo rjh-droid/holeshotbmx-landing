@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open the app — Holeshot BMX</title>
+  <meta name="description" content="Open the Holeshot BMX app, or download it from the App Store or Google Play.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="/newIcon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!--
+    App Links / Universal Links fallback for https://holeshotbmx.com.au/app/*
+    If the app is installed, iOS/Android open it directly and this page never shows.
+    It shows when the app isn't installed, or a mail app opens links in its own browser.
+
+    ⚠️ This file is duplicated at app/setup/index.html and 404.html (GitHub Pages has
+    no rewrites). Keep all three identical — the script below works out the
+    screen from the URL, so the copies don't need editing.
+  -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0D1116; --orange: #FF6A00; --teal: #18B2A6;
+      --white: #FFFFFF; --muted: rgba(255,255,255,0.6); --border: rgba(255,255,255,0.08);
+    }
+    html, body { min-height: 100%; }
+    body {
+      background: var(--bg); color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 48px 16px 40px; text-align: center;
+    }
+    main { width: 100%; max-width: 440px; display: flex; flex-direction: column; align-items: center; }
+    .logo { width: 180px; max-width: 60%; height: auto; margin-bottom: 28px; }
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(34px, 9vw, 46px); line-height: 1.05; text-transform: uppercase;
+      letter-spacing: 0.01em; margin-bottom: 12px;
+    }
+    h1 span { color: var(--orange); }
+    .lead { color: var(--muted); margin-bottom: 28px; }
+    .open-btn {
+      display: block; width: 100%; padding: 18px 20px; border-radius: 14px;
+      background: var(--orange); color: #fff; text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 24px;
+      letter-spacing: 0.03em; text-transform: uppercase;
+      box-shadow: 0 8px 28px rgba(255,106,0,0.3); transition: transform .15s, background .15s;
+    }
+    .open-btn:hover { background: #ff7d1f; }
+    .open-btn:active { transform: scale(0.98); }
+    .divider {
+      display: flex; align-items: center; gap: 12px; width: 100%;
+      color: var(--muted); font-size: 13px; margin: 32px 0 20px;
+    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .stores { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .stores a { display: inline-block; line-height: 0; }
+    .stores img { height: 56px; width: auto; }
+    .stores a.appstore {
+      line-height: 1.15; background: #000; color: #fff; text-decoration: none;
+      border: 1px solid #a6a6a6; border-radius: 9px; padding: 7px 18px 8px; text-align: left;
+      display: inline-flex; align-items: center; gap: 10px; min-width: 168px;
+    }
+    .appstore svg { width: 22px; height: 26px; fill: #fff; flex: none; }
+    .appstore small { display: block; font-size: 10px; }
+    .appstore strong { display: block; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 28px; }
+    .note a, .home a { color: var(--teal); }
+    .home { margin-top: 36px; font-size: 14px; }
+  </style>
+</head>
+<body>
+<main>
+  <a href="/"><img class="logo" src="/logo.png" alt="Holeshot BMX"></a>
+
+  <h1>Open <span>Holeshot BMX</span></h1>
+  <p class="lead">Tap the button to carry on in the app.</p>
+
+  <a id="open-app" class="open-btn" href="bmxapp://onboarding">Open the Holeshot BMX app</a>
+
+  <div class="divider">Don’t have the app yet?</div>
+
+  <div class="stores" id="stores">
+    <a class="play" href="https://play.google.com/store/apps/details?id=com.holeshotbmx.app" target="_blank" rel="noopener">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+    </a>
+    <a class="appstore" href="https://apps.apple.com/app/id6786330800" target="_blank" rel="noopener">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      <span><small>Download on the</small><strong>App Store</strong></span>
+    </a>
+  </div>
+
+  <p class="note">Button not working? Open the Holeshot BMX app on your phone yourself. If you opened this from an email app, try opening the link in Safari or Chrome instead.</p>
+
+  <p class="home"><a href="/">holeshotbmx.com.au</a></p>
+</main>
+
+<script>
+  (function () {
+    // /app/<path> → bmxapp://<screen>. "setup" (the email link) is the app's onboarding screen.
+    var ALIASES = { '': 'onboarding', 'setup': 'onboarding' };
+    var rest = location.pathname.replace(/^\/app\/?/, '').replace(/\/+$/, '');
+    if (!/^[a-z0-9_\-\/]*$/i.test(rest)) rest = '';
+    var screen = Object.prototype.hasOwnProperty.call(ALIASES, rest) ? ALIASES[rest] : rest;
+
+    var ua = navigator.userAgent || '';
+    var isAndroid = /android/i.test(ua);
+    var isIOS = /iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && 'ontouchend' in document);
+
+    var playUrl = 'https://play.google.com/store/apps/details?id=com.holeshotbmx.app';
+    var btn = document.getElementById('open-app');
+    btn.href = isAndroid
+      // Android: intent link opens the app, or the Play Store if it isn't installed.
+      ? 'intent://' + screen + '#Intent;scheme=bmxapp;package=com.holeshotbmx.app;S.browser_fallback_url=' + encodeURIComponent(playUrl) + ';end'
+      : 'bmxapp://' + screen;
+
+    // Put this device's store first.
+    var stores = document.getElementById('stores');
+    if (isIOS) stores.insertBefore(stores.querySelector('.appstore'), stores.firstChild);
+  })();
+</script>
+</body>
+</html>
