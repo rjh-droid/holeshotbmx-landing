@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["ZNAH5B96AU.com.holeshotbmx.app"],
+        "components": [
+          { "/": "/app/*", "comment": "Open-the-app links from emails, e.g. /app/setup" }
+        ]
+      }
+    ]
+  }
+}
