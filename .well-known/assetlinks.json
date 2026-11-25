@@ -5,8 +5,7 @@
       "namespace": "android_app",
       "package_name": "com.holeshotbmx.app",
       "sha256_cert_fingerprints": [
-        "__PLAY_APP_SIGNING_SHA256__",
-        "__UPLOAD_KEY_SHA256__"
+        "EA:F3:BB:6A:77:23:C7:50:32:22:4B:F7:5C:18:C8:20:D4:D5:89:FD:89:AC:3A:95:0F:1F:DE:03:55:84:69:FB"
       ]
     }
   }
