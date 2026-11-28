@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Holeshot BMX — BMX App for Racing, Lap Times & Track Finder</title>
-  <meta name="description" content="Holeshot BMX is the BMX racing app for riders, parents and coaches. Log gate and lap times, import Sqorz race results, find BMX tracks worldwide, manage bike setups and compete on leaderboards. Free on Android, coming soon to iOS.">
-  <meta name="keywords" content="BMX app, BMX racing app, BMX race tracker, BMX lap timer, BMX gate time tracker, BMX track directory, BMX leaderboard, BMX bike setup, BMX training app, BMX performance tracker, Sqorz BMX, BMX rollout calculator, BMX frame size, BMX gear ratio, BMX tracks worldwide, BMX tracks USA, BMX tracks UK, BMX tracks Australia, BMX tracks near me, add BMX track, Sqorz import, BMX coach app, BMX parent app, UCI BMX, UCI BMX Racing, UCI BMX Supercross, BMX World Championships, BMX Worlds, UCI certified BMX track, BMX racing world cup, elite BMX racing">
+  <meta name="description" content="Holeshot BMX is the BMX racing app for riders, parents and coaches. Log gate and lap times, import Sqorz race results, find BMX tracks and upcoming events, manage bike setups and compete on leaderboards. Free on Android, coming soon to iOS.">
+  <meta name="keywords" content="BMX app, BMX racing app, BMX race tracker, BMX lap timer, BMX gate time tracker, BMX track directory, BMX leaderboard, BMX bike setup, BMX training app, BMX performance tracker, Sqorz BMX, BMX rollout calculator, BMX frame size, BMX gear ratio, BMX tracks worldwide, BMX tracks USA, BMX tracks UK, BMX tracks Australia, BMX tracks near me, add BMX track, Sqorz import, BMX coach app, BMX parent app, UCI BMX, UCI BMX Racing, UCI BMX Supercross, BMX World Championships, BMX Worlds, UCI certified BMX track, BMX racing world cup, elite BMX racing, BMX events near me, BMX race calendar, EntryBoss, BMX gate start practice">
   <meta name="author" content="Holeshot BMX">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://holeshotbmx.com.au/">
@@ -124,6 +124,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. Invite a co-parent, coach or family member by email and choose what they can do: update rider details, manage bike setups, or log sessions. They see the rider in their own app, and you can change or remove their access at any time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find BMX races and events near me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open Events in the app to see upcoming BMX race meets, club days and gate practice near you. Events are gathered every morning from EntryBoss and Sqorz, and riders and clubs can add their own. Each event links to its entry page, can be added to your calendar, and can remind you before entries close. Events currently cover Australia."
         }
       }
     ]
@@ -496,16 +504,16 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     .phone {
       flex-shrink: 0;
-      width: 185px;
+      width: 158px;
     }
     .phone.hero-phone {
-      width: 220px;
+      width: 188px;
       transform: translateY(-24px);
     }
 
@@ -771,7 +779,17 @@
       <div class="feat-card">
         <div class="feat-icon">📡</div>
         <h3>Live Race Tracker</h3>
-        <p>See your next race and gate number as the meet runs, plus how you're tracking against the field so far — no more guessing when you're up.</p>
+        <p>On race day, see your next moto and gate number as the meet runs, the line-up with gate times, and how you're tracking against the field. Results save into your session by themselves, so there's nothing to type in afterwards.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📅</div>
+        <h3>BMX Events Near You</h3>
+        <p>Upcoming race meets, club days and gate practice near you, pulled each morning from EntryBoss and Sqorz, plus events added by riders and clubs. Filter by distance and date, enter in one tap, add it to your calendar, get a reminder before entries close, and see which other riders are going.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🚦</div>
+        <h3>Gate Start Trainer</h3>
+        <p>Practise your starts with a real BMX gate sequence: the starter's call (pick from three voices), a random delay, beep-beep-beep and the light tree, just like race day. The timer starts on the gate drop and can stop by itself at a set distance, so every practice start is timed and saved.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🏆</div>
@@ -823,42 +841,50 @@
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/track-finder-2026-11.png"
-               alt="Holeshot BMX track directory showing a nearest-first list of BMX tracks with verified badges">
-        </div>
-        <p class="phone-lbl">Track Finder</p>
-      </div>
-      <div class="phone">
-        <div class="phone-shell">
-          <div class="notch"></div>
-          <img src="screenshots/live-race-tracker-2026-11.png"
-               alt="Holeshot BMX Live Race Tracker showing next race, gate number, and standing against the field during a meet">
-        </div>
-        <p class="phone-lbl">Live Race Tracker</p>
-      </div>
-      <div class="phone hero-phone">
-        <div class="phone-shell">
-          <div class="notch"></div>
           <img src="screenshots/session-compare-2026-11.png"
-               alt="Holeshot BMX session screen with Compare To Personal Best, Race Winner, Class Best, or Fastest in the Meet">
+               alt="Holeshot BMX session screen with Compare To Personal Best, Race Winner, Class Best, or Fastest in the Meet" loading="lazy">
         </div>
         <p class="phone-lbl">Session Compare</p>
       </div>
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002706.png"
-               alt="Holeshot BMX leaderboard showing top riders at Pine Rivers BMX Club filtered by age group and bike wheel size">
+          <img src="screenshots/live-race-tracker-2026-11.png"
+               alt="Holeshot BMX Live Race Tracker showing next race, gate number, and standing against the field during a meet" loading="lazy">
+        </div>
+        <p class="phone-lbl">Live Race Tracker</p>
+      </div>
+      <div class="phone hero-phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/events-2026-11.jpg"
+               alt="Holeshot BMX Events list showing upcoming BMX race meets across Australia with entries-closing alerts and how many riders are going" loading="lazy">
+        </div>
+        <p class="phone-lbl">Events</p>
+      </div>
+      <div class="phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/event-detail-2026-11.jpg"
+               alt="Holeshot BMX event page for an AusCycling BMX State Series round with Enter on EntryBoss, Going and Entered buttons, Add to calendar and Directions" loading="lazy">
+        </div>
+        <p class="phone-lbl">Event Details</p>
+      </div>
+      <div class="phone">
+        <div class="phone-shell">
+          <div class="notch"></div>
+          <img src="screenshots/leaderboards-2026-11.jpg"
+               alt="Holeshot BMX lap time leaderboard filtered by wheel size and timing method, with verified times" loading="lazy">
         </div>
         <p class="phone-lbl">Leaderboards</p>
       </div>
       <div class="phone">
         <div class="phone-shell">
           <div class="notch"></div>
-          <img src="screenshots/Screenshot 2026-06-10 002734.png"
-               alt="Holeshot BMX setup recommendations showing ideal frame size, gear range in gear inches, and crank length for a BMX rider">
+          <img src="screenshots/gate-start-2026-11.jpg"
+               alt="Holeshot BMX Gate Start trainer showing the starting light tree and the starter call: OK riders, random start, riders ready, watch the gate" loading="lazy">
         </div>
-        <p class="phone-lbl">Setup Rec.</p>
+        <p class="phone-lbl">Gate Start</p>
       </div>
     </div>
   </div>
@@ -990,6 +1016,16 @@
           </svg>
         </summary>
         <p>Yes. Invite a co-parent, coach or family member by email and choose what they can do: update rider details, manage bike setups, or log sessions. They see the rider in their own app, and you can change or remove their access at any time.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          How do I find BMX races and events near me?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <p>Open Events in the app to see upcoming BMX race meets, club days and gate practice near you. Events are gathered every morning from EntryBoss and Sqorz, and riders and clubs can add their own. Each event links to its entry page, can be added to your calendar, and can remind you before entries close. Events currently cover Australia.</p>
       </details>
 
     </div>
